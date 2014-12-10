@@ -1,0 +1,32 @@
+<div class="general_block">
+  <div class="info_block">
+    <p>Создал: <%= image_tag avatar_url(post.user) %>
+      <%= post.user.name %>
+    </p>
+    <p><%= post.created_at.strftime('%d/%m/%Y') %></p>
+
+    <p class="rating">
+      <%= 'Рейтинг: ' %>
+      <% if current_user && (post.votes.where(user_id: current_user.id).count == 0) && (current_user != post.user) %>
+          <%= (link_to '+', vote_up_path(id: post.id), class: 'up', remote: true) %>
+      <% end %>
+      <span id="rating"><%= post.rating %></span>
+      <% if current_user && (post.votes.where(user_id: current_user.id).count == 0) && (current_user != post.user) %>
+          <%= (link_to '-', vote_down_path(id: post.id), class: 'down', remote: true) %>
+      <% end %>
+    </p>
+
+    <ul class="edit-list">
+      <li><%= link_to 'Показать комментарии', post %></li>
+      <% if current_user %>
+        <li><%= link_to 'Редактировать', edit_post_path(post) %></li>
+        <li><%= link_to 'Удалить', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="text_block">
+    <h2><%= post.title %></h2>
+    <p><%= post.body %></p>
+    <p>Теги: <%= post.tags %></p>
+  </div>
+</div>

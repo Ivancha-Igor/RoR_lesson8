@@ -1,0 +1,13 @@
+<div class="header">
+  <h1 class="blog-title"><%= link_to image_tag('logo.png'), root_path, alt: "logo" %></h1>
+  <ul class="reg">
+    <li><%= link_to 'Популярные посты', posts_path(sort: 'popular') %></li>
+    <li><%= link_to 'Активные посты', posts_path(sort: 'active') %></li>
+    <% if current_user %>
+        <li><%= link_to 'Выйти', sessions_logout_path %></li>
+    <% else  %>
+        <li><%= link_to 'Регистрация', registration_path %></li>
+        <li><%= link_to 'Вход', sessions_login_path %></li>
+    <% end %>
+  </ul>
+</div>

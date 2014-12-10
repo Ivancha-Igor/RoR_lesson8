@@ -1,0 +1,11 @@
+<%= form_for([@post, @post.comments.build], remote: true) do |f| %>
+    <%= f.hidden_field :post_id, value: @post.id %>
+    <%= f.hidden_field :parent_id, value: params[:parent_id] %>
+    <p>
+      <%= f.label 'Текст' %><br>
+      <%= f.text_area :body %>
+    </p>
+    <p>
+      <%= f.submit 'OK' %>
+    </p>
+<% end %>

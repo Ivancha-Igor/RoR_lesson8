@@ -1,0 +1,7 @@
+
+ <div class="content">
+   <% if current_user %>
+    <p class="create-post"><b><%= current_user.name %></b>, <%= link_to 'создать новую запись?', new_post_path %></p>
+   <% end %>
+      <%= render @posts %>
+ </div>

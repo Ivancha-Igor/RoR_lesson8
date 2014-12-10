@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div class="info_block">
+  <p>Создал: <%= image_tag avatar_url(@post.user) %>
+    <%= @post.user.name %>
+  </p>
+  <p><%= @post.created_at.strftime('%d/%m/%Y') %></p>
+  <% if current_user %>
+      <%= link_to 'Редактировать пост', edit_post_path(@post) %>
+  <% end %>
+</div>
+
+<div class="text_block">
+  <p class="post_title">
+    <b><%= @post.title %></b>
+  </p>
+
+  <p>
+    <%= @post.body %>
+  </p>
+
+  <p>
+    <strong>Теги:</strong>
+    <%= @post.tags %>
+  </p>
+  <% if current_user %>
+    <%= link_to 'Добавить комментарий', @post %>
+  <% end %>
+
+  <%= render 'comments/form' %>
+</div>
+
+
+<h2>Комментарии:</h2>
+
+<%= nested_comments @post.comments.arrange(:order => :created_at) %>
+
+<%= link_to 'Назад', posts_path %>

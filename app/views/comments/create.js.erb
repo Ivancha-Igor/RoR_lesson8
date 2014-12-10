@@ -1,0 +1,2 @@
+$('#new_comment').before('<%= j render partial: 'comment', locals: { comment: @post.comments.last } %>');
+$('.new_comment').remove();

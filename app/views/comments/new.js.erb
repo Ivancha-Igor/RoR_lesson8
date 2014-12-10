@@ -1,0 +1,3 @@
+$('#new_comment').remove();
+$('.reply').show();
+$('#add_comment<%= params[:parent_id] %>').after('<%= j render partial: 'form' %>');

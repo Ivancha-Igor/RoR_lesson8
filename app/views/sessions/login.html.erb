@@ -1,0 +1,15 @@
+<h1>Вход</h1>
+
+<%= form_tag('/sessions', method: :post) do  %>
+    <div class="field">
+      <%= label_tag 'Эл.почта' %><br>
+      <%= text_field_tag :email %>
+    </div>
+    <div class="field">
+      <%= label_tag 'Пароль' %><br>
+      <%= password_field_tag :password %>
+    </div>
+    <div class="actions">
+      <%= submit_tag 'Вход' %>
+    </div>
+<% end %>
