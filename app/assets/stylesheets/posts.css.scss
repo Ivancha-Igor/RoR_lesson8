@@ -67,23 +67,18 @@ ul {
 .wrap {
   width: 900px;
   margin: 0 auto;
-
   .header {
     overflow: hidden;
     margin-bottom: 30px;
-
     .blog-title {
       float: left;
       padding: 10px 50px 0;
     }
-
     .reg {
       float: right;
       padding: 45px 70px 0 0;
-
       li {
         display: inline;
-
         a {
           padding: 7px;
         }
@@ -119,10 +114,40 @@ ul {
   }
   .content {
     border-bottom: 1px solid #A7C3CF;
-
     .create-post {
       text-align: right;
       padding: 0 70px;
+    }
+    #calendar {
+      float: right;
+      text-align: center;
+      table.calendar {
+        border-spacing: 0;
+        thead {
+          th {
+            font: {
+              weight: normal;
+              style: italic;
+            }
+          }
+        }
+        tbody {
+          tr {
+            td {
+              font: {
+                size: 10px;
+                style: italic;
+              }
+            }
+          }
+          tr:nth-child(odd) {
+            background: #fff;
+          }
+          tr:nth-child(even) {
+            background: #f0f0f0;
+          }
+        }
+      }
     }
     .general_block {
       margin-bottom: 35px;
