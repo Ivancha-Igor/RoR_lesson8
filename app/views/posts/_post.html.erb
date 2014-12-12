@@ -17,7 +17,7 @@
     </p>
 
     <ul class="edit-list">
-      <li><%= link_to 'Показать комментарии', post %></li>
+      <li><%= link_to 'Показать комментарии', post %> (<%= post.comments.count %>)</li>
       <% if current_user %>
         <li><%= link_to 'Редактировать', edit_post_path(post) %></li>
         <li><%= link_to 'Удалить', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
