@@ -7,10 +7,12 @@
    </p>
    <p>Создал: <%= comment.user.name %> <%= comment.created_at.strftime('%d/%m/%Y') %></p>
    <p>
-     <span><%= link_to 'Удалить комментарий', [comment.post, comment], class: 'comment-style delete',
+     <% if current_user %>
+       <span><%= link_to 'Удалить комментарий', [comment.post, comment], class: 'comment-style delete',
                        method: :delete,
                        data: { confirm: 'Вы уверены?' } %></span> |
-     <span class="reply"><%= link_to 'Комментировать', new_post_comment_path(@post.id, :parent_id => comment), class: 'comment-style', id: "add_comment#{comment.id}", remote: true %></span>
+       <span class="reply"><%= link_to 'Комментировать', new_post_comment_path(@post.id, :parent_id => comment), class: 'comment-style', id: "add_comment#{comment.id}", remote: true %></span>
+     <% end %>
    </p>
 
 </div>

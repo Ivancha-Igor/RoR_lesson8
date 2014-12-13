@@ -5,6 +5,7 @@
     <%= @post.user.name %>
   </p>
   <p><%= @post.created_at.strftime('%d/%m/%Y') %></p>
+  <p class="rating">Рейтинг: <%= @post.rating %></p>
   <% if current_user %>
       <%= link_to 'Редактировать пост', edit_post_path(@post) %>
   <% end %>
@@ -25,9 +26,9 @@
   </p>
   <% if current_user %>
     <%= link_to 'Добавить комментарий', @post %>
+      <%= render 'comments/form' %>
   <% end %>
 
-  <%= render 'comments/form' %>
 </div>
 
 
