@@ -133,18 +133,18 @@ ul {
         }
         tbody {
           tr {
+            &:nth-child(odd) {
+              background: #fff;
+            }
+            &:nth-child(even) {
+              background: #f0f0f0;
+            }
             td {
               font: {
                 size: 10px;
                 style: italic;
               }
             }
-          }
-          tr:nth-child(odd) {
-            background: #fff;
-          }
-          tr:nth-child(even) {
-            background: #f0f0f0;
           }
         }
       }
@@ -165,8 +165,6 @@ ul {
           .down {
             border-color: red;
           }
-        }
-        .edit-list {
         }
       }
     }

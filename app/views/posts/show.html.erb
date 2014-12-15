@@ -7,7 +7,7 @@
   <p><%= @post.created_at.strftime('%d/%m/%Y') %></p>
   <p class="rating">Рейтинг: <%= @post.rating %></p>
   <% if current_user %>
-      <%= link_to 'Редактировать пост', edit_post_path(@post) %>
+    <%= link_to 'Редактировать пост', edit_post_path(@post) %>
   <% end %>
 </div>
 
@@ -15,20 +15,17 @@
   <p class="post_title">
     <b><%= @post.title %></b>
   </p>
-
   <p>
     <%= @post.body %>
   </p>
-
   <p>
     <strong>Теги:</strong>
     <%= @post.tags %>
   </p>
   <% if current_user %>
     <%= link_to 'Добавить комментарий', @post %>
-      <%= render 'comments/form' %>
+    <%= render 'comments/form' %>
   <% end %>
-
 </div>
 
 

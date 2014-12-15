@@ -2,14 +2,14 @@
  <div class="content">
 
    <% if current_user %>
-    <p class="create-post"><b><%= current_user.name %></b>, <%= link_to 'создать новую запись?', new_post_path %></p>
+     <p class="create-post"><b><%= current_user.name %></b>, <%= link_to 'создать новую запись?', new_post_path %></p>
    <% end %>
 
    <div id="calendar">
      <%= month_calendar table: {class: 'calendar'}, td: {class: 'day'} do |date| %>
-         <%= date.day %>
+       <%= date.day %>
      <% end %>
    </div>
 
-      <%= render @posts %>
+     <%= render @posts %>
  </div>
